@@ -39,7 +39,7 @@ export default function Navbar() {
       <div className="nav-inner">
         <a className="nav-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <span className="logo-bracket">[</span>
-          <span className="logo-name">YN</span>
+          <span className="logo-name">DS</span>
           <span className="logo-bracket">]</span>
         </a>
 

@@ -4,8 +4,8 @@ import gsap from 'gsap';
 import './Hero.css';
 
 // ── CONFIG — replace with your own info ──────────────────────────
-const NAME = 'Your Name';
-const TAGLINE = 'I build things for the internet';
+const NAME = 'Dhanush Shenoy H';
+const TAGLINE = 'I build & contribute for things I love';
 const SUBTITLE = "Full Stack Developer — turning complex problems into elegant, performant software.";
 const LOCATION = 'Mangaluru, India';
 const STATUS = { text: 'Open to work', active: true };

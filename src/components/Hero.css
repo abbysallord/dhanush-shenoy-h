@@ -296,7 +296,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--text-white);
 }
 
 .marquee-track span {
