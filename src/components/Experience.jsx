@@ -9,28 +9,28 @@ gsap.registerPlugin(ScrollTrigger);
 // ── CONFIG ───────────────────────────────────────────────────────
 const EXPERIENCES = [
   {
-    period: '2024 — Present',
-    role: 'Full Stack Developer',
-    company: 'Your Company',
+    period: '2026 — Present',
+    role: 'Project Lead',
+    company: 'CardioNerve & AgroNova',
     type: 'Full-time',
-    desc: 'Building scalable microservices and React applications serving 50k+ users. Led architecture decisions, mentored juniors, shipped 3 major product features.',
+    desc: 'Leading the development of two distinct SaaS platforms: CardioNerve, a specialized cardiac care management system, and AgroNova, an agricultural technology solution. Responsibilities include full-stack development, cloud infrastructure management, and guiding junior developers through complex technical challenges.',
     highlights: ['40% performance improvement on core API', 'Led migration to TypeScript', 'Built internal design system'],
   },
   {
-    period: '2023 — 2024',
-    role: 'Frontend Developer',
-    company: 'Agency / Studio',
-    type: 'Contract',
-    desc: 'Delivered pixel-perfect, animated web experiences for clients across fintech, SaaS, and e-commerce. Specialized in complex data visualization.',
-    highlights: ['12 client projects launched', 'Introduced GSAP animation system', 'React performance audits'],
+    period: 'Fall 2025',
+    role: 'Campus Ambassador & Intern',
+    company: 'TechFest, IIT Bombay',
+    type: 'Part-time',
+    desc: 'Leading the promotion of India’s largest college tech fest, IIT Bombay Techfest, across campuses. Also built a number of projects that was given to me as assignments',
+    highlights: ['10+ projects', 'Learnt GSAP animation system', 'React performance audits'],
   },
   {
-    period: '2022 — 2023',
-    role: 'Junior Developer',
-    company: 'Startup',
-    type: 'Full-time',
+    period: 'Summer 2025',
+    role: 'Intern',
+    company: 'CodeAlpha',
+    type: 'Internship',
     desc: 'First professional role. Contributed to full-stack features, learned production deployment, agile workflows, and code review culture.',
-    highlights: ['Shipped 20+ features', 'Node.js backend development', 'CI/CD pipeline setup'],
+    highlights: ['Shipped 5+ features', 'Node.js backend development', 'CI/CD pipeline setup'],
   },
 ];
 
