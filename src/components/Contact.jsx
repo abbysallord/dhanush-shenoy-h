@@ -3,7 +3,6 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiSend } from 'react-icons/fi';
-import { FaXTwitter, FaHeart } from 'react-icons/fa6'
 import './Contact.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,14 +12,14 @@ const EMAIL = 'dshenoyh@gmail.com';
 const SOCIAL = [
   { icon: FiGithub, label: 'GitHub', href: 'https://github.com/abbysallord' },
   { icon: FiLinkedin, label: 'LinkedIn', href: 'https://linkedin.com/in/dhanush-shenoy-h' },
-  { icon: FaXTwitter, label: 'X (formerly Twitter)', href: 'https://x.com/dhanushshenoyh' },
+  { icon: FiTwitter, label: 'Twitter', href: 'https://x.com/dhanushshenoyh' },
 ];
 // ─────────────────────────────────────────────────────────────────
 
 export default function Contact() {
   const sectionRef = useRef(null);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle | sending | sent
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
   useGSAP(() => {
     gsap.fromTo('.contact-headline', {
@@ -60,9 +59,27 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
-    // Replace with your actual form submission (Formspree, EmailJS, etc.)
-    await new Promise(r => setTimeout(r, 1500));
-    setStatus('sent');
+
+    try {
+      const res = await fetch(import.meta.env.VITE_FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+
+      if (res.ok) {
+        setStatus('sent');
+        setForm({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
+    }
   };
 
   return (
@@ -127,6 +144,12 @@ export default function Contact() {
                     required
                   />
                 </div>
+                {status === 'error' && (
+                  <p className="form-error">
+                    Something went wrong. Please try again or email me directly.
+                  </p>
+                )}
+
                 <button type="submit" className="form-submit" disabled={status === 'sending'}>
                   {status === 'sending' ? (
                     <span className="sending">Sending<span className="dots">...</span></span>
@@ -179,9 +202,9 @@ export default function Contact() {
       <div className="contact-footer">
         <div className="container footer-inner">
           <span className="footer-copy">
-            © {new Date().getFullYear()} — Built with DSH
+            © {new Date().getFullYear()} — Built with React & GSAP
           </span>
-          <span className="footer-name">Dhanush Shenoy H</span>
+          <span className="footer-name">Your Name</span>
         </div>
       </div>
     </section>
