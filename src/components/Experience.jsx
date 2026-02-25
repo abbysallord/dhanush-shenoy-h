@@ -38,7 +38,8 @@ const EDUCATION = [
   {
     period: '2020 — 2024',
     degree: 'B.Tech Computer Science',
-    institution: 'Your University',
+    institution: 'University: Yenepoya School of Engineering and Technology (YSET)',
+    industryPartner: 'Industry Partner: Nxtwave of Innovation and Advanced Technologies (NIAT)',
     note: 'Focused on algorithms, distributed systems, and web development.',
   },
 ];
@@ -96,11 +97,12 @@ export default function Experience() {
             {/* Education card */}
             <div className="edu-card">
               <span className="label" style={{ marginBottom: '0.75rem', display: 'block' }}>Education</span>
-              {EDUCATION.map(({ period, degree, institution, note }) => (
+              {EDUCATION.map(({ period, degree, institution, industryPartner, note }) => (
                 <div key={degree}>
                   <span className="edu-period">{period}</span>
                   <h4 className="edu-degree">{degree}</h4>
                   <p className="edu-institution">{institution}</p>
+                  <p className="edu-institution">{industryPartner}</p>
                   <p className="edu-note">{note}</p>
                 </div>
               ))}

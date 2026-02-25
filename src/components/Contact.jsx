@@ -3,16 +3,17 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiSend } from 'react-icons/fi';
+import { FaXTwitter, FaHeart } from 'react-icons/fa6'
 import './Contact.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // ── CONFIG ───────────────────────────────────────────────────────
-const EMAIL = 'your@email.com';
+const EMAIL = 'dshenoyh@gmail.com';
 const SOCIAL = [
-  { icon: FiGithub, label: 'GitHub', href: 'https://github.com/yourusername' },
-  { icon: FiLinkedin, label: 'LinkedIn', href: 'https://linkedin.com/in/yourusername' },
-  { icon: FiTwitter, label: 'Twitter', href: 'https://twitter.com/yourusername' },
+  { icon: FiGithub, label: 'GitHub', href: 'https://github.com/abbysallord' },
+  { icon: FiLinkedin, label: 'LinkedIn', href: 'https://linkedin.com/in/dhanush-shenoy-h' },
+  { icon: FaXTwitter, label: 'X (formerly Twitter)', href: 'https://x.com/dhanushshenoyh' },
 ];
 // ─────────────────────────────────────────────────────────────────
 
@@ -178,9 +179,9 @@ export default function Contact() {
       <div className="contact-footer">
         <div className="container footer-inner">
           <span className="footer-copy">
-            © {new Date().getFullYear()} — Built with React & GSAP
+            © {new Date().getFullYear()} — Built with DSH
           </span>
-          <span className="footer-name">Your Name</span>
+          <span className="footer-name">Dhanush Shenoy H</span>
         </div>
       </div>
     </section>
