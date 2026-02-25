@@ -111,7 +111,7 @@ export default function About() {
         {/* Stats */}
         <div className="stats-strip">
           {[
-            { num: '15+', label: 'Projects shipped' },
+            { num: '15+', label: 'Projects' },
             { num: '2+', label: 'Years coding' },
             { num: '∞', label: 'Coffees consumed' },
             { num: '100%', label: 'Passion' },

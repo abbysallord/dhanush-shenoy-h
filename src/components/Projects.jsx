@@ -11,51 +11,51 @@ gsap.registerPlugin(ScrollTrigger);
 const PROJECTS = [
   {
     id: '01',
-    title: 'Nexus Dashboard',
-    subtitle: 'SaaS Analytics Platform',
-    desc: 'A real-time analytics platform with live data streaming, customizable dashboards, and role-based access control. Handles 10k+ events/sec.',
-    tags: ['React', 'Node.js', 'WebSockets', 'PostgreSQL', 'Redis'],
-    github: 'https://github.com',
-    live: 'https://example.com',
+    title: 'AgroNova',
+    subtitle: 'Smart Farming Platform',
+    desc: 'A comprehensive smart farming platform designed to optimize agricultural operations through real-time data analytics, IoT integration, and predictive modeling.',
+    tags: ['Next.js', 'Shadcn UI', 'Tailwind CSS', 'PostgreSQL', 'GSAP'],
+    github: 'https://github.com/abbysallord/AgroNova',
+    live: 'https://www.agronova.in/',
     featured: true,
     year: '2024',
     accent: '#c8f542',
   },
   {
     id: '02',
-    title: 'Orbit API',
-    subtitle: 'Developer Infrastructure',
-    desc: 'REST + GraphQL API gateway with rate limiting, auth, and auto-generated SDK. 99.9% uptime, serving 50+ client applications.',
-    tags: ['Node.js', 'GraphQL', 'Docker', 'Nginx', 'AWS'],
-    github: 'https://github.com',
-    live: 'https://example.com',
+    title: 'DrugSecure',
+    subtitle: 'A QC Platform for drugs',
+    desc: 'A QC platform for pharmaceutical industry designed to ensure the authenticity and traceability of drugs from manufacturer to consumer.',
+    tags: ['React.js', 'Node.js', 'K-Means Clustering', 'Machine Learning'],
+    github: 'https://github.com/abbysallord/drug-secure',
+    live: 'https://drugsecure.vercel.app/',
     featured: true,
     year: '2024',
     accent: '#64c8ff',
   },
   {
     id: '03',
-    title: 'Forma UI',
-    subtitle: 'Design System',
-    desc: 'A production-grade component library with 40+ components, full TypeScript support, Storybook documentation, and WCAG 2.1 compliance.',
+    title: 'Old Portfolio',
+    subtitle: 'My Old Portfolio',
+    desc: 'My old portfolio website. The one that I built before this one. I really liked the design of this one, so I decided to keep it as a project.',
     tags: ['React', 'TypeScript', 'Storybook', 'Tailwind'],
-    github: 'https://github.com',
-    live: 'https://example.com',
+    github: 'https://github.com/abbysallord/Portfolio',
+    live: 'https://dhanush-porfolio.netlify.app/',
     featured: false,
     year: '2023',
     accent: '#ff9564',
   },
   {
     id: '04',
-    title: 'Kite CMS',
-    subtitle: 'Content Management',
-    desc: 'Headless CMS built with a flexible content modelling system, multi-language support, webhook integrations, and CDN delivery.',
-    tags: ['Next.js', 'MongoDB', 'S3', 'Cloudflare'],
-    github: 'https://github.com',
-    live: null,
+    title: 'AI Chef',
+    subtitle: 'built for pg students',
+    desc: 'A website that helps you find the best recipes for the ingredients you have.',
+    tags: ['React.js', 'HuggingFace API', 'Tailwind CSS'],
+    github: 'https://github.com/abbysallord/AI-Chef',
+    live: 'https://ai-chefbot.netlify.app/',
     featured: false,
     year: '2023',
-    accent: '#c8f542',
+    accent: '#b642f5',
   },
 ];
 // ─────────────────────────────────────────────────────────────────
@@ -160,7 +160,7 @@ export default function Projects() {
         </div>
 
         <div className="projects-footer">
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="btn-ghost">
+          <a href="https://github.com/abbysallord" target="_blank" rel="noreferrer" className="btn-ghost">
             <FiGithub size={16} />
             See more on GitHub
           </a>

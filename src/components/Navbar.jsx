@@ -56,7 +56,7 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a className="nav-cta" href="/resume.pdf" target="_blank" rel="noreferrer">
+            <a className="nav-cta" href="https://drive.google.com/file/d/13o6ZjUe8sJrXcc5KRRTWWq4FMIC0H1Qr/view?usp=sharing" target="_blank" rel="noreferrer">
               Resume ↗
             </a>
           </li>

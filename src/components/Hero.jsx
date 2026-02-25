@@ -148,7 +148,7 @@ export default function Hero() {
           <div className="meta-sep" />
           <div className="meta-item">
             <span className="label">Projects</span>
-            <span className="meta-val">15+ shipped</span>
+            <span className="meta-val">15+</span>
           </div>
         </div>
       </div>
