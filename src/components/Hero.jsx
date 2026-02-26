@@ -4,7 +4,8 @@ import gsap from 'gsap';
 import './Hero.css';
 
 // ── CONFIG — replace with your own info ──────────────────────────
-const NAME = 'Dhanush Shenoy H';
+const NAME_FIRST = 'Dhanush';
+const NAME_LAST = 'Shenoy H';
 const TAGLINE = 'I build & contribute for things I love';
 const SUBTITLE = "Full Stack Developer — turning complex problems into elegant, performant software.";
 const LOCATION = 'Mangaluru, India';
@@ -95,7 +96,10 @@ export default function Hero() {
 
         <h1 className="hero-title">
           <div className="title-line overflow-hidden">
-            <SplitText text={NAME} className="title-name" delay={0} />
+            <SplitText text={NAME_FIRST} className="title-name" delay={0} />
+          </div>
+          <div className="title-line overflow-hidden">
+            <SplitText text={NAME_LAST} className="title-name" delay={0.21} />
           </div>
         </h1>
 
@@ -119,7 +123,7 @@ export default function Hero() {
           >
             View my work
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
           <a
@@ -138,7 +142,7 @@ export default function Hero() {
         <div className="hero-meta">
           <div className="meta-item">
             <span className="label">Stack</span>
-            <span className="meta-val">React · Node · PostgreSQL</span>
+            <span className="meta-val">MERN</span>
           </div>
           <div className="meta-sep" />
           <div className="meta-item">

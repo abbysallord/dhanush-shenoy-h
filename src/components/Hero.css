@@ -20,8 +20,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(200,245,66,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200,245,66,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(200, 245, 66, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 245, 66, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
 }
@@ -37,7 +37,7 @@
 .hero-orb-1 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(200,245,66,0.5) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(200, 245, 66, 0.5) 0%, transparent 70%);
   top: -100px;
   right: -100px;
   animation-delay: 0s;
@@ -46,7 +46,7 @@
 .hero-orb-2 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(100,200,255,0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(100, 200, 255, 0.3) 0%, transparent 70%);
   bottom: -50px;
   left: 10%;
   animation-delay: -3s;
@@ -56,7 +56,7 @@
 .hero-orb-3 {
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(200,245,66,0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(200, 245, 66, 0.2) 0%, transparent 70%);
   top: 40%;
   left: 30%;
   animation-delay: -6s;
@@ -64,14 +64,21 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-30px) scale(1.05); }
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
 }
 
 .hero-vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(8,8,8,0.8) 100%);
+  background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(8, 8, 8, 0.8) 100%);
   pointer-events: none;
 }
 
@@ -105,9 +112,17 @@
 }
 
 @keyframes pulse-dot {
-  0% { box-shadow: 0 0 0 0 var(--accent-glow); }
-  70% { box-shadow: 0 0 0 8px transparent; }
-  100% { box-shadow: 0 0 0 0 transparent; }
+  0% {
+    box-shadow: 0 0 0 0 var(--accent-glow);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
 }
 
 .hero-divider {
@@ -127,6 +142,10 @@
   letter-spacing: -0.01em;
   margin-bottom: 1.2rem;
   perspective: 600px;
+  /* Lay both name lines side-by-side on desktop */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.35em;
 }
 
 .split-char {
@@ -188,14 +207,14 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.15);
+  background: rgba(0, 0, 0, 0.15);
   opacity: 0;
   transition: opacity 0.2s;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(200,245,66,0.35);
+  box-shadow: 0 8px 30px rgba(200, 245, 66, 0.35);
 }
 
 .btn-primary:hover::before {
@@ -271,8 +290,19 @@
 }
 
 @keyframes scroll-grow {
-  0%, 100% { transform: scaleY(0.5); opacity: 0.5; transform-origin: top; }
-  50% { transform: scaleY(1); opacity: 1; transform-origin: top; }
+
+  0%,
+  100% {
+    transform: scaleY(0.5);
+    opacity: 0.5;
+    transform-origin: top;
+  }
+
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+    transform-origin: top;
+  }
 }
 
 /* Marquee */
@@ -309,13 +339,49 @@
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @media (max-width: 768px) {
-  .hero-meta { flex-wrap: wrap; gap: 1rem; }
-  .meta-sep { display: none; }
-  .hero-scroll-indicator { display: none; }
-  .hero-orb-1 { width: 300px; height: 300px; }
+
+  /* Stack name lines vertically on mobile */
+  .hero-title {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .hero-meta {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .meta-sep {
+    display: none;
+  }
+
+  .hero-scroll-indicator {
+    display: none;
+  }
+
+  .hero-orb-1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  /*
+   * The marquee is position:absolute at bottom:0.
+   * Adding padding-bottom to .hero (the flex container) shrinks the
+   * space available to flex children, pushing the centered content
+   * above the marquee. 4rem covers the marquee's ~2.5rem height
+   * with comfortable breathing room.
+   */
+  .hero {
+    padding-bottom: 4rem;
+  }
 }

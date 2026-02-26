@@ -17,7 +17,7 @@ const PROJECTS = [
     tags: ['AI', 'OpenAI', 'Hackathon', 'AgroNova'],
     github: 'https://github.com/abbysallord/AgroNova',
     live: 'https://drive.google.com/file/d/1Jg11Uuvwnr3qBWS0zRIpZAjBx3RkNLIn/view?usp=sharing',
-    featured: true,
+    featured: false,
     hackathon: true,
     year: '2026',
     accent: '#c8f542',
