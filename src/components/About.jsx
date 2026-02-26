@@ -16,7 +16,7 @@ const STORY = [
 
 const SKILLS = [
   { cat: 'Frontend', items: ['React', 'TypeScript', 'Next.js', 'Framer Motion', 'Tailwind CSS', 'GSAP'] },
-  { cat: 'Backend', items: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'GraphQL', 'REST APIs'] },
+  { cat: 'Backend', items: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'Python (Flask, FastAPI)', 'REST APIs'] },
   { cat: 'DevOps & Tools', items: ['Docker', 'Git', 'Linux', 'AWS', 'Nginx', 'CI/CD'] },
 ];
 // ─────────────────────────────────────────────────────────────────

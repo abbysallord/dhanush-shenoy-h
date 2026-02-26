@@ -63,7 +63,7 @@
 .proj-year {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: var(--text-faint);
+  color: var(--text-muted);
   letter-spacing: 0.08em;
 }
 

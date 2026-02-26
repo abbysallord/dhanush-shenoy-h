@@ -14,33 +14,33 @@ const EXPERIENCES = [
     company: 'CardioNerve & AgroNova',
     type: 'Full-time',
     desc: 'Leading the development of two distinct SaaS platforms: CardioNerve, a specialized cardiac care management system, and AgroNova, an agricultural technology solution. Responsibilities include full-stack development, cloud infrastructure management, and guiding junior developers through complex technical challenges.',
-    highlights: ['40% performance improvement on core API', 'Led migration to TypeScript', 'Built internal design system'],
+    highlights: ['40% performance improvement on core API', 'Led migration to Next.js', 'Built internal design system'],
   },
   {
-    period: 'Fall 2025',
-    role: 'Campus Ambassador & Intern',
-    company: 'TechFest, IIT Bombay',
+    period: '2025 - 2026',
+    role: 'Hackathons',
+    company: '7+ Hackathons participated',
     type: 'Part-time',
-    desc: 'Leading the promotion of India’s largest college tech fest, IIT Bombay Techfest, across campuses. Also built a number of projects that was given to me as assignments',
-    highlights: ['10+ projects', 'Learnt GSAP animation system', 'React performance audits'],
+    desc: 'Participated in various hackathons and built a number of projects that was given to me as assignments',
+    highlights: ['Participated in Vibeathon - Polaris & REPLIT', 'Participated in state-level Buildathon and got selected as finalist in Delhi', 'Participated in CodeSprint 2026', 'participated in Base44 & MurfAI workshops'],
   },
   {
     period: 'Summer 2025',
-    role: 'AI/ML Intern',
-    company: 'CodeAlpha',
-    type: 'Internship',
-    desc: 'First professional role. Contributed to full-stack features, learned production deployment, agile workflows, and code review culture.',
-    highlights: ['Shipped 5+ features', 'Node.js backend development', 'CI/CD pipeline setup'],
+    role: 'Campus Ambassador',
+    company: 'Techfest, IIT Bombay',
+    type: 'Part-time',
+    desc: 'Leading the promotion of India’s largest college tech fest, IIT Bombay Techfest, across campuses. Also built a number of projects that was given to me as assignments',
+    highlights: ['5+ projects', 'Learnt GSAP animation system', 'React performance audits'],
   },
 ];
 
 const EDUCATION = [
   {
-    period: '2020 — 2024',
+    period: '2025 — Present',
     degree: 'B.Tech Computer Science',
     institution: 'University: Yenepoya School of Engineering and Technology (YSET)',
     industryPartner: 'Industry Partner: Nxtwave of Innovation and Advanced Technologies (NIAT)',
-    note: 'Focused on algorithms, distributed systems, and web development.',
+    note: 'Focused on web development, AI/ML, and hackathons.',
   },
 ];
 // ─────────────────────────────────────────────────────────────────

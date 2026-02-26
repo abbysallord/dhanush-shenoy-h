@@ -11,6 +11,19 @@ gsap.registerPlugin(ScrollTrigger);
 const PROJECTS = [
   {
     id: '01',
+    title: 'OpenAI Buildathon Finalist',
+    subtitle: 'among top 90 teams from 75,000',
+    desc: 'I was selected as finalist in OpenAI Buildathon 2026, a national hackathon for AI and machine learning enthusiasts, which was held in Delhi as pre-summit event for the AI Impact Summit 2026. Showcased AgroNova there.',
+    tags: ['AI', 'OpenAI', 'Hackathon', 'AgroNova'],
+    github: 'https://github.com/abbysallord/AgroNova',
+    live: 'https://drive.google.com/file/d/1Jg11Uuvwnr3qBWS0zRIpZAjBx3RkNLIn/view?usp=sharing',
+    featured: true,
+    hackathon: true,
+    year: '2026',
+    accent: '#c8f542',
+  },
+  {
+    id: '02',
     title: 'AgroNova',
     subtitle: 'Smart Farming Platform',
     desc: 'A comprehensive smart farming platform designed to optimize agricultural operations through real-time data analytics, IoT integration, and predictive modeling.',
@@ -18,11 +31,25 @@ const PROJECTS = [
     github: 'https://github.com/abbysallord/AgroNova',
     live: 'https://www.agronova.in/',
     featured: true,
-    year: '2024',
+    hackathon: false,
+    year: '2026',
     accent: '#c8f542',
   },
   {
-    id: '02',
+    id: '03',
+    title: 'Srinathon 2nd Prize',
+    subtitle: 'secured 2nd in Srinathon 2025',
+    desc: 'I & team won 2nd prize in Srinathon 2025, a national hackathon, which was held in Mangalore.',
+    tags: ['Srinathon', '2nd Prize', 'AI'],
+    github: '',
+    live: 'https://drive.google.com/file/d/1l1HWOCCLOnK-V3hvnWQuew_lq5cC0SpY/view?usp=sharing',
+    featured: false,
+    hackathon: true,
+    year: '2025',
+    accent: '#c8f542',
+  },
+  {
+    id: '04',
     title: 'DrugSecure',
     subtitle: 'A QC Platform for drugs',
     desc: 'A QC platform for pharmaceutical industry designed to ensure the authenticity and traceability of drugs from manufacturer to consumer.',
@@ -30,11 +57,12 @@ const PROJECTS = [
     github: 'https://github.com/abbysallord/drug-secure',
     live: 'https://drugsecure.vercel.app/',
     featured: true,
-    year: '2024',
+    hackathon: false,
+    year: '2026',
     accent: '#64c8ff',
   },
   {
-    id: '03',
+    id: '05',
     title: 'Old Portfolio',
     subtitle: 'My Old Portfolio',
     desc: 'My old portfolio website. The one that I built before this one. I really liked the design of this one, so I decided to keep it as a project.',
@@ -42,19 +70,21 @@ const PROJECTS = [
     github: 'https://github.com/abbysallord/Portfolio',
     live: 'https://dhanush-porfolio.netlify.app/',
     featured: false,
-    year: '2023',
+    hackathon: false,
+    year: '2025',
     accent: '#ff9564',
   },
   {
-    id: '04',
+    id: '06',
     title: 'AI Chef',
     subtitle: 'built for pg students',
     desc: 'A website that helps you find the best recipes for the ingredients you have.',
     tags: ['React.js', 'HuggingFace API', 'Tailwind CSS'],
     github: 'https://github.com/abbysallord/AI-Chef',
     live: 'https://ai-chefbot.netlify.app/',
+    hackathon: false,
     featured: false,
-    year: '2023',
+    year: '2025',
     accent: '#b642f5',
   },
 ];
@@ -75,6 +105,7 @@ function ProjectCard({ project, index }) {
           <span className="proj-id">{project.id}</span>
           <span className="proj-year">{project.year}</span>
           {project.featured && <span className="proj-badge">Featured</span>}
+          {project.hackathon && <span className="proj-badge">Hackathon</span>}
         </div>
         <div className="card-links">
           {project.github && (
@@ -145,7 +176,7 @@ export default function Projects() {
         <div className="section-header">
           <span className="label">02 — Selected Work</span>
           <h2 className="section-title" style={{ marginTop: '1rem' }}>
-            Things I've<br /><em>built</em>
+            Projects &<br /><em>Hackathons</em>
           </h2>
           <p className="projects-intro">
             A curated selection of projects — ranging from developer tools to SaaS platforms.
