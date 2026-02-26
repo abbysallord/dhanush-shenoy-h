@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -83,6 +84,8 @@ export default function App() {
         <Experience />
         <Contact />
       </main>
+
+      <Analytics />
     </>
   );
 }
