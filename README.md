@@ -1,5 +1,5 @@
 <!-- Header Banner -->
-<div align="center">
+<div>
 
 ```
 ██████╗ ███████╗██╗  ██╗
