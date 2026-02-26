@@ -17,7 +17,8 @@
 
 .contact-title em {
   font-style: normal;
-  -webkit-text-stroke: 1px rgba(200,245,66,0.6);
+  /* -webkit-text-stroke: 1px rgba(200,245,66,0.6); */
+  -webkit-text-stroke: 1px var(--accent);
   color: transparent;
 }
 
@@ -262,7 +263,7 @@
 .footer-copy, .footer-name {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--text-faint);
+  color: var(--text-muted);
   letter-spacing: 0.1em;
 }
 

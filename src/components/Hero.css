@@ -213,7 +213,7 @@
   letter-spacing: 0.05em;
   padding: 0.9rem 1.8rem;
   text-decoration: none;
-  border: 1px solid var(--border);
+  border: 1px solid #666;
   border-radius: 2px;
   transition: border-color 0.2s, color 0.2s, transform 0.2s var(--ease-back);
 }

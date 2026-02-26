@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiSend } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiTwitter, FiInstagram, FiSend } from 'react-icons/fi';
 import './Contact.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,7 +12,8 @@ const EMAIL = 'dshenoyh@gmail.com';
 const SOCIAL = [
   { icon: FiGithub, label: 'GitHub', href: 'https://github.com/abbysallord' },
   { icon: FiLinkedin, label: 'LinkedIn', href: 'https://linkedin.com/in/dhanush-shenoy-h' },
-  { icon: FiTwitter, label: 'Twitter', href: 'https://x.com/dhanushshenoyh' },
+  // { icon: FiTwitter, label: 'Twitter', href: 'https://x.com/dhanushshenoyh' },
+  { icon: FiInstagram, label: 'Instagram', href: 'https://instagram.com/conqueror.core' },
 ];
 // ─────────────────────────────────────────────────────────────────
 
@@ -202,9 +203,9 @@ export default function Contact() {
       <div className="contact-footer">
         <div className="container footer-inner">
           <span className="footer-copy">
-            © {new Date().getFullYear()} — Built with React & GSAP
+            © {new Date().getFullYear()} — Built by DSH
           </span>
-          <span className="footer-name">Your Name</span>
+          <span className="footer-name">Dhanush Shenoy H</span>
         </div>
       </div>
     </section>

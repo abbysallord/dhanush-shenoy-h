@@ -26,7 +26,7 @@ const EXPERIENCES = [
   },
   {
     period: 'Summer 2025',
-    role: 'Intern',
+    role: 'AI/ML Intern',
     company: 'CodeAlpha',
     type: 'Internship',
     desc: 'First professional role. Contributed to full-stack features, learned production deployment, agile workflows, and code review culture.',

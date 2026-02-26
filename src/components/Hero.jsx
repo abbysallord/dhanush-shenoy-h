@@ -90,7 +90,7 @@ export default function Hero() {
           <div className={`status-dot ${STATUS.active ? 'active' : ''}`} />
           <span className="label">{STATUS.text}</span>
           <span className="hero-divider">|</span>
-          <span className="label" style={{ color: 'var(--text-muted)' }}>{LOCATION}</span>
+          <span className="label" style={{ color: '#aaa' }}>{LOCATION}</span>
         </div>
 
         <h1 className="hero-title">
