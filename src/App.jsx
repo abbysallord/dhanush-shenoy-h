@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -86,6 +87,7 @@ export default function App() {
       </main>
 
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }
