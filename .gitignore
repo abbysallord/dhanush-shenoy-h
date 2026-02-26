@@ -31,3 +31,9 @@ Thumbs.db
 
 # Vite
 *.local
+
+# Testing
+coverage/
+
+# Vite cache
+.vite/
