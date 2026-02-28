@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import Lenis from 'lenis';
@@ -72,6 +73,21 @@ export default function App() {
 
   return (
     <>
+      <Helmet>
+        <title>Dhanush Shenoy H — Full Stack Developer</title>
+        <meta name="description" content="Portfolio of Dhanush Shenoy H, a full stack developer specializing in building modern web applications." />
+        <meta name="keywords" content="Dhanush Shenoy H, Full Stack Developer, React, Portfolio, Web Developer" />
+        <meta name="author" content="Dhanush Shenoy H" />
+        <meta property="og:title" content="Dhanush Shenoy H — Full Stack Developer" />
+        <meta property="og:description" content="Portfolio of Dhanush Shenoy H, a full stack developer specializing in building modern web applications." />
+        <meta property="og:image" content="/favicon.svg" />
+        <meta property="og:url" content="https://dhanushshenoyh.github.io/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Dhanush Shenoy H — Full Stack Developer" />
+        <meta name="twitter:description" content="Portfolio of Dhanush Shenoy H, a full stack developer specializing in building modern web applications." />
+      </Helmet>
+
       {/* Custom cursor */}
       <div ref={dotRef} className="cursor-dot" />
       <div ref={ringRef} className="cursor-ring" />
