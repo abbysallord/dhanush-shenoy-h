@@ -7,42 +7,8 @@ import './Experience.css';
 gsap.registerPlugin(ScrollTrigger);
 
 // ── CONFIG ───────────────────────────────────────────────────────
-const EXPERIENCES = [
-  {
-    period: '2026 — Present',
-    role: 'Project Lead',
-    company: 'CardioNerve & AgroNova',
-    type: 'Full-time',
-    desc: 'Leading the development of two distinct SaaS platforms: CardioNerve, a specialized cardiac care management system, and AgroNova, an agricultural technology solution. Responsibilities include full-stack development, cloud infrastructure management, and guiding junior developers through complex technical challenges.',
-    highlights: ['40% performance improvement on core API', 'Led migration to Next.js', 'Built internal design system'],
-  },
-  {
-    period: '2025 - 2026',
-    role: 'Hackathons',
-    company: '7+ Hackathons participated',
-    type: 'Part-time',
-    desc: 'Participated in various hackathons and built a number of projects that was given to me as assignments',
-    highlights: ['Participated in Vibeathon - Polaris & REPLIT', 'Participated in state-level Buildathon and got selected as finalist in Delhi', 'Participated in CodeSprint 2026', 'participated in Base44 & MurfAI workshops'],
-  },
-  {
-    period: 'Summer 2025',
-    role: 'Campus Ambassador',
-    company: 'Techfest, IIT Bombay',
-    type: 'Part-time',
-    desc: 'Leading the promotion of India’s largest college tech fest, IIT Bombay Techfest, across campuses. Also built a number of projects that was given to me as assignments',
-    highlights: ['5+ projects', 'Learnt GSAP animation system', 'React performance audits'],
-  },
-];
+import { EXPERIENCES, EDUCATION } from '../data/portfolioData';
 
-const EDUCATION = [
-  {
-    period: '2025 — Present',
-    degree: 'B.Tech Computer Science',
-    institution: 'University: Yenepoya School of Engineering and Technology (YSET)',
-    industryPartner: 'Industry Partner: Nxtwave of Innovation and Advanced Technologies (NIAT)',
-    note: 'Focused on web development, AI/ML, and hackathons.',
-  },
-];
 // ─────────────────────────────────────────────────────────────────
 
 export default function Experience() {

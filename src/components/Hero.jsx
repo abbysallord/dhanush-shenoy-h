@@ -3,14 +3,15 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import './Hero.css';
 
-// ── CONFIG — replace with your own info ──────────────────────────
-const NAME_FIRST = 'Dhanush';
-const NAME_LAST = 'Shenoy H';
-const TAGLINE = 'I build & contribute for things I love';
-const SUBTITLE = "Full Stack Developer — turning complex problems into elegant, performant software.";
-const LOCATION = 'Mangaluru, India';
+import { PROFILE } from '../data/portfolioData';
+
+const NAME_FIRST = PROFILE.name.first;
+const NAME_LAST = PROFILE.name.last;
+const TAGLINE = PROFILE.tagline;
+const SUBTITLE = `${PROFILE.role} — turning complex problems into elegant, performant software.`;
+const LOCATION = PROFILE.location;
 const STATUS = { text: 'Open to work', active: true };
-// ─────────────────────────────────────────────────────────────────
+
 
 function SplitText({ text, className, delay = 0 }) {
   return (

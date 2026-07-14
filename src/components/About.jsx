@@ -1,32 +1,72 @@
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useStaggerReveal } from '../hooks/useReveal';
 import './About.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ── CONFIG ───────────────────────────────────────────────────────
-const STORY = [
-  { num: '01', title: 'The Beginning', text: "It started with a broken CSS layout at 2am. Instead of giving up, I spent four hours debugging — and felt more alive than ever. That night changed everything." },
-  { num: '02', title: 'The Journey', text: "Self-taught through projects, failures, and late nights. From static HTML pages to full-stack applications. Every bug was a lesson, every feature a milestone." },
-  { num: '03', title: 'The Present', text: "Now I build production-grade software — scalable backends, intuitive UIs, and clean APIs. I care deeply about the craft: readable code, thoughtful architecture, real impact." },
-];
+import { STORY_STAGES as STORY, STATS } from '../data/portfolioData';
 
-const SKILLS = [
-  { cat: 'Frontend', items: ['React', 'TypeScript', 'Next.js', 'Framer Motion', 'Tailwind CSS', 'GSAP'] },
-  { cat: 'Backend', items: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'Python (Flask, FastAPI)', 'REST APIs'] },
-  { cat: 'DevOps & Tools', items: ['Docker', 'Git', 'Linux', 'AWS', 'Nginx', 'CI/CD'] },
-];
-// ─────────────────────────────────────────────────────────────────
+
+function AnimatedCounter({ value, suffix = '', label }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const hasRun = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !hasRun.current) {
+          hasRun.current = true;
+          const end = parseInt(value, 10);
+          if (isNaN(end)) return;
+
+          let startTime = null;
+          const duration = 1500; // ms
+
+          const animate = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const current = Math.floor(progress * end);
+            setCount(current);
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              setCount(end);
+            }
+          };
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const el = ref.current;
+    if (el) observer.observe(el);
+    return () => {
+      if (el) observer.unobserve(el);
+    };
+  }, [value]);
+
+  return (
+    <div className="stat-item" ref={ref}>
+      <span className="stat-num">
+        {count.toLocaleString()}
+        {suffix}
+      </span>
+      <span className="stat-label">{label}</span>
+    </div>
+  );
+}
 
 export default function About() {
   const sectionRef = useRef(null);
-  const staggerRef = useStaggerReveal(0.08);
 
   useGSAP(() => {
-    // Horizontal scroll-driven number animation
+    // Large background title parallax
     gsap.fromTo('.about-big-number', {
       x: -60,
       opacity: 0,
@@ -56,7 +96,6 @@ export default function About() {
         start: 'top 75%',
       }
     });
-
   }, { scope: sectionRef });
 
   return (
@@ -83,43 +122,10 @@ export default function About() {
           ))}
         </div>
 
-        {/* Divider */}
-        <div className="h-rule" style={{ margin: '6rem 0' }} />
-
-        {/* Skills */}
-        <div className="skills-block">
-          <div className="skills-label">
-            <span className="label">What I work with</span>
-          </div>
-          <div className="skills-grid" ref={staggerRef}>
-            {SKILLS.map(({ cat, items }) => (
-              <div key={cat} className="skill-group reveal" data-stagger>
-                <h4 className="skill-cat">{cat}</h4>
-                <ul className="skill-list">
-                  {items.map(item => (
-                    <li key={item} className="skill-item">
-                      <span className="skill-bullet">▸</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Stats */}
+        {/* Stats Strip with Animated Counters */}
         <div className="stats-strip">
-          {[
-            { num: '15+', label: 'Projects' },
-            { num: '2+', label: 'Years coding' },
-            { num: '∞', label: 'Coffees consumed' },
-            { num: '100%', label: 'Passion' },
-          ].map(({ num, label }) => (
-            <div key={label} className="stat-item">
-              <span className="stat-num">{num}</span>
-              <span className="stat-label">{label}</span>
-            </div>
+          {STATS.map(({ value, suffix, label }) => (
+            <AnimatedCounter key={label} value={value} suffix={suffix} label={label} />
           ))}
         </div>
 

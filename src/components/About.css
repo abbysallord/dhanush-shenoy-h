@@ -157,7 +157,7 @@
 /* Stats */
 .stats-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 2px;
   margin-top: 6rem;
   border: 1px solid var(--border);
@@ -200,13 +200,23 @@
   .story-grid { grid-template-columns: 1fr; }
   .skills-block { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
-  .stats-strip { grid-template-columns: repeat(2, 1fr); }
-  .stat-item:nth-child(2) { border-right: none; }
-  .stat-item:nth-child(3) { border-right: 1px solid var(--border); }
+  .stats-strip { grid-template-columns: repeat(3, 1fr); }
+  .stat-item { border-right: 1px solid var(--border) !important; }
+  .stat-item:nth-child(3) { border-right: none !important; }
+  .stat-item:last-child { border-right: none !important; }
 }
 
 @media (max-width: 600px) {
   .skills-grid { grid-template-columns: 1fr; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .stat-item { border-right: 1px solid var(--border) !important; border-bottom: 1px solid var(--border); }
+  .stat-item:nth-child(2n) { border-right: none !important; }
+  .stat-item:last-child { border-right: none !important; border-bottom: none; }
+}
+
+@media (max-width: 480px) {
   .stats-strip { grid-template-columns: 1fr; }
   .stat-item { border-right: none !important; border-bottom: 1px solid var(--border); }
+  .stat-item:last-child { border-bottom: none; }
 }
+
