@@ -87,6 +87,32 @@
   opacity: 1;
 }
 
+.nav-now-link {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 0;
+  text-decoration: none;
+}
+
+.nav-now-link:hover,
+.nav-now-link.active {
+  color: var(--text);
+}
+
+.nav-now-link.active .link-num {
+  color: var(--accent);
+}
+
+.nav-now-link:hover .link-num {
+  opacity: 1;
+}
+
 .nav-cta {
   font-family: var(--font-mono);
   font-size: 0.8rem;
@@ -102,6 +128,7 @@
   background: var(--accent);
   color: var(--bg) !important;
 }
+
 
 /* Hamburger */
 .hamburger {
@@ -156,7 +183,9 @@
     pointer-events: all;
   }
 
-  .nav-links li button {
+  .nav-links li button,
+  .nav-links li a.nav-now-link {
     font-size: 1.2rem;
   }
 }
+
