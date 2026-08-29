@@ -1,25 +1,106 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FiGithub, FiExternalLink, FiPlus, FiMinus } from 'react-icons/fi';
+import { FiGithub, FiExternalLink, FiPlus, FiMinus, FiX, FiArrowRight } from 'react-icons/fi';
 import './Projects.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 import { PROJECTS } from '../data/portfolioData';
 
+function RedirectModal({ project, onClose }) {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'Enter' && project?.live) {
+        window.open(project.live, '_blank', 'noopener,noreferrer');
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [project, onClose]);
 
+  if (!project) return null;
 
-function ProjectCard({ project }) {
+  const targetUrl = project.live || project.github;
+  const isLive = Boolean(project.live);
+
+  const handleProceed = () => {
+    if (targetUrl) {
+      window.open(targetUrl, '_blank', 'noopener,noreferrer');
+    }
+    onClose();
+  };
+
+  return (
+    <div className="redirect-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
+      <div 
+        className="redirect-modal-container" 
+        onClick={(e) => e.stopPropagation()}
+        style={{ '--project-accent': project.accent || 'var(--accent)' }}
+      >
+        <button className="redirect-modal-close" onClick={onClose} aria-label="Close modal">
+          <FiX size={18} />
+        </button>
+
+        <div className="redirect-modal-eyebrow">
+          <span className="pulse-dot" />
+          <span>OUTBOUND REDIRECT // {project.id}</span>
+        </div>
+
+        <div className="redirect-modal-content">
+          <h3 className="redirect-modal-title">{project.title}</h3>
+          <p className="redirect-modal-subtitle">{project.subtitle}</p>
+          <p className="redirect-modal-desc">{project.desc}</p>
+
+          <div className="redirect-modal-target">
+            <span className="target-label">DESTINATION:</span>
+            <span className="target-url">{targetUrl}</span>
+          </div>
+        </div>
+
+        <div className="redirect-modal-actions">
+          <button className="btn-modal-cancel" onClick={onClose}>
+            Cancel
+          </button>
+          <button className="btn-modal-proceed" onClick={handleProceed}>
+            <span>{isLive ? 'Launch Live App' : 'View GitHub Repo'}</span>
+            <FiArrowRight size={16} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProjectCard({ project, onSelect }) {
   const [hovered, setHovered] = useState(false);
+
+  const handleClick = (e) => {
+    // If the click occurred inside an explicit card-link icon, let the anchor handle it
+    if (e.target.closest('.card-link')) {
+      return;
+    }
+    onSelect(project);
+  };
 
   return (
     <article
       className={`project-card ${project.featured ? 'featured' : ''}`}
+      onClick={handleClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       data-stagger
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleClick(e);
+        }
+      }}
     >
       <div className="card-top">
         <div className="card-meta">
@@ -29,12 +110,12 @@ function ProjectCard({ project }) {
         </div>
         <div className="card-links">
           {project.github && (
-            <a href={project.github} target="_blank" rel="noreferrer" className="card-link" aria-label="GitHub" data-cursor="hover">
+            <a href={project.github} target="_blank" rel="noreferrer" className="card-link" aria-label="GitHub" data-cursor="hover" onClick={(e) => e.stopPropagation()}>
               <FiGithub size={16} />
             </a>
           )}
           {project.live && (
-            <a href={project.live} target="_blank" rel="noreferrer" className="card-link" aria-label="Live" data-cursor="hover">
+            <a href={project.live} target="_blank" rel="noreferrer" className="card-link" aria-label="Live" data-cursor="hover" onClick={(e) => e.stopPropagation()}>
               <FiExternalLink size={16} />
             </a>
           )}
@@ -73,13 +154,13 @@ function ProjectCard({ project }) {
 export default function Projects() {
   const sectionRef = useRef(null);
   const [showAll, setShowAll] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const featuredProjects = PROJECTS.filter(p => p.featured);
   const otherProjects = PROJECTS.filter(p => !p.featured);
   const displayedProjects = showAll ? [...featuredProjects, ...otherProjects] : featuredProjects;
 
   useGSAP(() => {
-    // Re-run scrolltrigger animations on card load
     ScrollTrigger.refresh();
   }, [showAll]);
 
@@ -99,7 +180,11 @@ export default function Projects() {
 
         <div className="projects-grid">
           {displayedProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              onSelect={(p) => setSelectedProject(p)} 
+            />
           ))}
         </div>
 
@@ -129,6 +214,13 @@ export default function Projects() {
           </a>
         </div>
       </div>
+
+      {selectedProject && (
+        <RedirectModal 
+          project={selectedProject} 
+          onClose={() => setSelectedProject(null)} 
+        />
+      )}
     </section>
   );
 }
